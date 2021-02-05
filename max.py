@@ -1,13 +1,13 @@
 i=int(input())
 max=i
 count=0
-while i!=0:
-   next_i=int(input())
+next_i=int(input())
+while next_i!=0:
    if next_i>i:
        max=next_i
        count=1
-       continue
-   if next_i==max:
+   elif next_i==max:
        count+=1
-   i=next_i
+   next_i=i
+   next_i=int(input())
 print(count)
