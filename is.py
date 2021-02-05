@@ -5,4 +5,4 @@ while i!=0:
    if next_i>=i:
        count+=1
    i=next_i
-print(count)
+print(count) 
