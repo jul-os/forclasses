@@ -1,6 +1,5 @@
 prev_i=int(input())
 i=int(input())
-max=i
 count=1
 while i!=0:
    if i==prev_i:
