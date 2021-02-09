@@ -1,0 +1,10 @@
+n=int(input())
+i=0
+t=''
+for u in range(1,n):
+    while i<=u:
+        t+=(str(u)+' ')*i
+        i+=1
+t=t.replace(t[n*2:],'')
+print(t)
+#костыли какие, но как их убрать пока не поняла
