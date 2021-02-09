@@ -1,9 +1,10 @@
-prev_i=int(input())
+count=0
 i=int(input())
-count=1
-while i!=0:
-   if i==prev_i:
-       count+=1
-   prev_i=i
-   i=int(input())
+if i!=0:
+    next_i=int(input())
+    while next_i!=0:
+        if next_i==i:
+            count+=1
+        i=next_i
+        next_i=int(input())
 print(count)
