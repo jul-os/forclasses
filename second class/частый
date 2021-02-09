@@ -1,0 +1,7 @@
+def t_or_f(stru):
+    if stru.count('0')>stru.count('1'):
+        return 'false'
+    else:
+        return 'true'
+stru=str(input())
+print(t_or_f(stru))
