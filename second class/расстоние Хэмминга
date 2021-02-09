@@ -1,0 +1,9 @@
+def hamming_distance(stru,stry):
+    count=0
+    for i in range(len(stru)):
+        if stru[i]!=stry[i]:
+            count+=1
+    return count
+stru=str(input())
+stry=str(input())
+print(hamming_distance(stru,stry))
