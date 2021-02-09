@@ -1,6 +1,6 @@
 i=int(input())
 max=i
-count=0
+count=1 #должен ли он выдавать один?
 while i!=0:
    if i>max:
        max=i
