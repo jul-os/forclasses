@@ -1,0 +1,8 @@
+triangle_vertex=str(input())
+def perimeter(triangle_vertex):
+    a=((int(triangle_vertex[0])-int(triangle_vertex[4]))**2+(int(triangle_vertex[2])-int(triangle_vertex[6]))**2)**0.5
+    b=((int(triangle_vertex[4])-int(triangle_vertex[8]))**2+(int(triangle_vertex[6])-int(triangle_vertex[10]))**2)**0.5
+    c=((int(triangle_vertex[8])-int(triangle_vertex[0]))**2+(int(triangle_vertex[10])-int(triangle_vertex[2]))**2)**0.5
+    per=a+c+b
+    return per
+print(perimeter(triangle_vertex))
