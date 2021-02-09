@@ -1,0 +1,7 @@
+def FtoC_CtoF(C,F):
+    FtoC=5*(F-32)/9
+    CtoF=9*C/5+32
+    return FtoC, CtoF
+C=int(input())
+F=int(input())
+print(FtoC_CtoF(C, F))
