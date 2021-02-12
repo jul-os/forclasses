@@ -1,0 +1,27 @@
+def readBoolean(s):
+    for j in range(len(s)):
+        if s[j]=='false':
+            return 0
+        elif s[j]=='true':
+            return 1
+        elif s[j]=='0' or s[j]=='1':
+            return int(s[j])
+def readBoolean2D(n, m):
+    a = []*n
+    for i in range(n):
+        row=[]
+        s = input().split()
+        for j in range(m):
+            s[j]=readBoolean(s)
+            row.append(s[j])
+        a.append(row)
+    return a
+def printBoolean2D(a):
+    for i in range(n):
+        for j in range(m):
+            print(a[i][j], end=' ')
+        print('\t')
+         
+n,m=map(int,input().split())
+a=readBoolean2D(n, m)
+printBoolean2D(a) 
