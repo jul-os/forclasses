@@ -12,8 +12,7 @@ def compare(i, dictionary):
         elif dis1<dis:
             dis=dis1
             l=t
-            y=1
-    if y==1:
+    if l!=0:
         return l
     
 def hamming_distance(i,word2):
