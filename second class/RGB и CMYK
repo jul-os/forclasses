@@ -1,0 +1,13 @@
+def RGBtoCMYK(R, G, B):
+    template = '{:.' + str(6) + 'f}'
+    Rnew=float(R/255)
+    Gnew=float(G/255)
+    Bnew=float(B/255)
+    K=float(1-max(Rnew,Gnew,Bnew))
+    C=float((1-Rnew-K)/(1-K))
+    M=float((1-Gnew-K)/(1-K))
+    Y=float((1-Bnew-K)/(1-K))
+    print(template.format(C),template.format(M), template.format(Y),template.format(K))
+    return ''
+R,G,B=map(int,input().split())
+print (RGBtoCMYK(R, G, B))
