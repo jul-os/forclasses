@@ -3,7 +3,6 @@ a=list(dictionary.read().split())
 def compare(i, dictionary):
     word2=''
     dis=len(i)
-    y=0
     for t in a:
         word2=t
         dis1=hamming_distance(i, word2)
