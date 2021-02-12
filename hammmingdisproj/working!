@@ -19,7 +19,6 @@ def hamming_distance(i,word2):
     for k in range(min(len(i), len(word2))):
         if i[k]!=word2[k]:
             count+=1
-        
     return count
  
 word1=open("input.txt","r")
