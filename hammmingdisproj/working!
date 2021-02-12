@@ -1,0 +1,30 @@
+dictionary=open("words.txt", "r")
+a=list(dictionary.read().split())
+def compare(i, dictionary):
+    word2=''
+    dis=len(i)
+    y=0
+    for t in a:
+        word2=t
+        dis1=hamming_distance(i, word2)
+        if dis1==0:
+            return(i)
+        elif dis1<dis:
+            dis=dis1
+            l=t
+            y=1
+    if y==1:
+        return l
+    
+def hamming_distance(i,word2):
+    count=max(len(i),len(word2))-min(len(i),len(word2))
+    for k in range(min(len(i), len(word2))):
+        if i[k]!=word2[k]:
+            count+=1
+        
+    return count
+ 
+word1=open("input.txt","r")
+word1=word1.read().split()
+for i in word1:
+    print(compare(i, dictionary))
