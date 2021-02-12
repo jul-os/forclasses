@@ -1,0 +1,8 @@
+def pow(a, n):
+    if n%2==0:
+        power=a**(n/2)*a**(n/2)
+    if n%2!=0:
+        power=a*a**(n-1)
+    return power
+a,n=map(float,input().split())
+print(pow(a,n))
