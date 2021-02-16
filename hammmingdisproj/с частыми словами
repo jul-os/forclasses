@@ -19,12 +19,6 @@ def hamming_distance(i,word2):
     count=max(len(i),len(word2))-min(len(i),len(word2))
     for k in range(min(len(i), len(word2))):
         if i[k]!=word2[k]:
-           
-            #for letter in i:
-                #nears=near(letter,keyboard)
-                #for nearl in nears:
-                    #if 
-                
             count+=1
     return count
     
