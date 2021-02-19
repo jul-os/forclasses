@@ -1,0 +1,17 @@
+def wordscount(words):
+    words=words.lower()
+    dictw={}
+    for word in words.split():
+        count=0
+        if word not in dictw:
+            count=1
+            dictw[word]=count
+        else:
+            h=dictw.get(word)
+            count=h+1
+        dictw[word]=count
+    return dictw
+words=str(input())
+dictw=wordscount(words)
+for word, count in dictw.items():
+    print(word,count, end=' ')  
