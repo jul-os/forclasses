@@ -1,0 +1,7 @@
+n=int(input())
+s={}
+for xi in range(n):
+    xi=int(input())
+    if xi not in s:
+        s[xi]=f(xi)
+    print(s.get(xi))
