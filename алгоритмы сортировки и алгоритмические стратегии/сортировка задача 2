@@ -1,0 +1,14 @@
+A=list(map(int, input().split()))
+
+def isAcending(A):
+    n=len(A)
+    i=0
+    while i<=n-2 and A[i]<A[i+1]:
+        i+=1
+    if i==n-1:
+        return 'YES'
+    else:
+        return 'NO'
+print(isAcending(A))
+
+#так условия задачи не нарушились? условия не в while, но немного не линейный поиск
