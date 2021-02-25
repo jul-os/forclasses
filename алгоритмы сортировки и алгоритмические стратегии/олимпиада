@@ -1,0 +1,13 @@
+n=int(input())
+people={}
+bbs=[]
+for i in range(n):
+    fio, bb=input().split()
+    bb=int(bb)
+    people[bb]=fio
+for bb in people.keys():
+    bbs.append(bb)
+bbs.sort()
+bbs=bbs[::-1]
+for u in bbs:
+    print(people.get(u), end=' ') 
