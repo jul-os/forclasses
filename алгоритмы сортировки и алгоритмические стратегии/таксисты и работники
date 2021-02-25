@@ -1,0 +1,13 @@
+n_emp=list(map(int, input().split()))
+n_tax=list(map(int, input().split()))
+n_emp.sort()
+n_tax.sort()
+n=len(n_emp)
+cost=0
+for i in range(n):
+    emp=min(n_emp)
+    tax=max(n_tax)
+    cost+=emp*tax
+    del n_emp[n_emp.index(emp)]
+    del n_tax[n_tax.index(tax)]
+print(cost)
