@@ -1,0 +1,34 @@
+disk=int(input())
+users=int(input())
+files=list(map(int, input().split()))
+archive=0
+files.sort()
+userscount=0
+
+for file in range(users):
+    if users==1:
+        if files[0]<=disk:
+            print(1)
+        else:
+            print(0)
+        break
+    archive+=files[file]
+    userscount+=1
+    if archive<disk and file==users-2:
+        print(userscount)
+        break
+    elif archive>disk:
+        last_file=files[file]
+        archive-=files[file]
+        archive+=files[file+1]
+        if archive>disk:
+            archive-=files[file+1]
+            userscount-=1
+            print(userscount)
+            break
+        elif archive==disk:
+            print(userscount)
+            break
+    elif archive==disk:
+        print(userscount)
+        break
