@@ -1,8 +1,24 @@
+def bubblemintomax(n_emp,n):
+    data=n_emp
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j]>data[j+1]:
+                data[j], data[j+1]=data[j+1], data[j]
+    return data
+
+def bubblemaxtomin(n_tax,n):
+    data=n_tax
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j]<data[j+1]:
+                data[j], data[j+1]=data[j+1], data[j]
+    return data
 n_emp=list(map(int, input().split()))
 n_tax=list(map(int, input().split()))
-n_emp.sort()
-n_tax.sort()
-n=len(n_emp)
+n=len(n_emp)    
+                
+n_emp=bubblemintomax(n_emp,n)
+n_tax=bubblemaxtomin(n_tax,n)
 cost=0
 for i in range(n):
     emp=min(n_emp)
