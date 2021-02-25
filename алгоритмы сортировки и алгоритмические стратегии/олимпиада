@@ -1,3 +1,12 @@
+def bubble(bbs):
+    data=bbs
+    n=len(bbs)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j]>data[j+1]:
+                data[j], data[j+1]=data[j+1], data[j]
+    return data
+
 n=int(input())
 people={}
 bbs=[]
@@ -7,7 +16,7 @@ for i in range(n):
     people[bb]=fio
 for bb in people.keys():
     bbs.append(bb)
-bbs.sort()
+bbs=bubble(bbs)
 bbs=bbs[::-1]
 for u in bbs:
     print(people.get(u), end=' ') 
