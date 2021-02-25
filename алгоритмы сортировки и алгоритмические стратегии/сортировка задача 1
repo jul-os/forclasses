@@ -1,0 +1,36 @@
+inp=open("text.txt", "r")
+data=inp.read().split()
+n=len(data)
+for i in range(n):
+    data[i]=int(data[i])
+    
+def bubble(data,n):
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j]>data[j+1]:
+                data[j], data[j+1]=data[j+1], data[j]
+    datastr=''
+    for i in data:
+        datastr+=str(i)+' '
+    return datastr
+
+def insertions(data, n):
+    for i in range(n):
+        j = i-1
+        key = data[i]
+        while data[j] > key and j >= 0:
+            data[j + 1] = data[ j ]
+            j -= 1
+            data[j + 1] = key
+    datastr=''
+    for i in data:
+        datastr+=str(i)+' '
+    return datastr
+outp=open("output.txt", "w")
+bb=bubble(data, n)
+outp.write(bb)
+outp.write('\n')
+ins=insertions(data, n)
+outp.write(ins)
+outp.write('\n')
+outp.close()
