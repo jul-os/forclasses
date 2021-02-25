@@ -1,8 +1,17 @@
+def bubble(files,users):
+    data=files
+    n=users
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j]>data[j+1]:
+                data[j], data[j+1]=data[j+1], data[j]
+    return data
+
 disk=int(input())
 users=int(input())
 files=list(map(int, input().split()))
 archive=0
-files.sort()
+files=bubble(files,users)
 userscount=0
 
 for file in range(users):
