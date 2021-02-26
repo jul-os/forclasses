@@ -1,0 +1,8 @@
+d={}
+cities=[]
+another_d={}
+for key, value in d.items():
+    for v in value:  #тк в одной стране несколько городов обычно
+        another_d[v]=key
+for city in cities:
+    print(another_d.get(city))
