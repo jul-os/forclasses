@@ -1,0 +1,13 @@
+l=list(map(int,input().split()))
+n=len(l)
+newl=[int(0) for i in range(n)]
+step=int(input())
+for i in range(n):
+    if i+step<=n-1:
+        newl[i+step]=l[i]
+    else:
+        stepr=n-1-i
+        stepn=step-stepr-1
+        newl[stepn]=l[i]
+for i in newl:
+    print(i, end=' ')
