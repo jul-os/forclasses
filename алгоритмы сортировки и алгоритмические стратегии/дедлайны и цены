@@ -1,0 +1,39 @@
+totaltime=int(input())
+n=int(input())
+cc={}
+def getkeybyvalue(cc,ct):
+    for key, value in cc.items():
+        if ct==value:
+            return key
+costs=[]
+deadlines=[]
+count=0
+for i in range(n):
+    deadline, cost=list(map(int,input().split()))
+    if deadline in deadlines:
+        costd=cc.get(deadline)
+        if costd<cost:
+            costs.remove(costd)
+            costs.append(cost)
+            cc[deadline]=cost
+    else:
+        costs.append(cost)
+        deadlines.append(deadline)
+        cc[deadline]=cost
+for i in range(n-1):
+    dl=min(deadlines)
+    ct=max(costs)
+    ctod=getkeybyvalue(cc,ct)
+    if totaltime-ctod>=2:
+        del deadlines[deadlines.index(dl)]
+        del costs[costs.index(cc.get(dl))]
+        del cc[dl]
+        count+=1
+        totaltime-=1
+    elif totaltime-ctod==1:
+        del costs[costs.index(ct)]
+        del deadlines[deadlines.index(ctod)]
+        del cc[ctod]
+        count+=1
+        totaltime-=1
+print(count)
