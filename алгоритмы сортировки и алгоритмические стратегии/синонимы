@@ -1,0 +1,10 @@
+dictionary={'jkj':'2', 'jkhkh': 'ioio', 'ruuruu':'ururu'}
+n=len(dictionary)
+for key in dictionary.keys():
+    for i in range(n):
+        if i==n-1:
+            keyw=key
+print(dictionary.get(keyw))
+
+#есть нормальный способ это делать?
+#я пробовала через dic.values()[index], но он выдает ошибку
