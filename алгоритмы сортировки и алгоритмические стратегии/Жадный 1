@@ -1,0 +1,9 @@
+n=str(input())
+a=[]
+newn=''
+for i in n:
+    a.append(i)
+for u in range(len(n)):
+    newn+=max(a)
+    del a[a.index(max(a))]
+print(int(newn))
