@@ -1,0 +1,8 @@
+n=int(input())
+two=''
+while n!=1:
+    two+=str(n%2)
+    n=n//2
+if n==1:
+    two+='1'
+print(two[::-1])
