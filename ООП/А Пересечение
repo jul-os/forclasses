@@ -1,0 +1,33 @@
+class Rectangle:
+    def __init__(self, xi1, yi1, xi2,yi2):
+        self.rectangle_leftup=[xi1,yi1]
+        self.rectangle_rightdown=[xi2,yi2]
+    #rectangle_leftdown=[xi1,yi2]
+    #rectangle_rightup=[xi2,yi1]
+    def intersection(self, rectangle2):
+        if rectangle2.rectangle_leftup[1]>=self.rectangle_rightdown[1] and rectangle2.rectangle_leftup[1]<=self.rectangle_leftup[1]:
+            return 'yes'
+        elif rectangle2.rectangle_leftup[0]>=self.rectangle_rightdown[0] and rectangle2.rectangle_leftup[0]<=self.rectangle_leftup[0]:
+            return 'yes'
+        elif rectangle2.rectangle_rightdown[1]>=self.rectangle_rightdown[1] and rectangle2.rectangle_rightdown[1]<=self.rectangle_leftup[1]:
+            return 'yes'
+        elif rectangle2.rectangle_rightdown[0]>=self.rectangle_rightdown[0] and rectangle2.rectangle_rightdown[0]<=self.rectangle_leftup[0]:
+            return 'yes'
+        else:
+            return 'no'
+    
+    
+n=int(input())
+rectangles=[]
+count=0
+for i in range(n):
+    xi1,yi1,xi2,yi2=list(map(int,input().split()))
+    rectangle_i=Rectangle(xi1,yi1,xi2,yi2)
+    rectangles.append(rectangle_i)
+for i in range(n-1):
+    rectangle1=rectangles[i]
+    rectangle2=rectangles[i+1]
+    unsw=rectangle1.intersection(rectangle2)
+    if unsw=='yes':
+        count+=1
+print(count)
