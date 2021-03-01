@@ -1,0 +1,15 @@
+nkids=int(input())
+ages=[]
+for i in range(nkids):
+    idp, age=list(map(int, input().split()))
+    ages.append(age)
+ages.sort()
+minage=ages[0]
+count=1
+for i in range(1,len(ages)):
+    if ages[i]-minage<=2:
+        continue
+    else:
+        minage=ages[i]
+        count+=1
+print(count) 
