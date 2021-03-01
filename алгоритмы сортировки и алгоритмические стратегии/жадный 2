@@ -1,0 +1,14 @@
+lines={right: left}
+
+#lines={1:2, 3:5, 4:6}
+rights=[]
+for key in lines.keys():
+    rights.append(key)
+rights.sort()
+count=0
+for i in range(len(rights)-2):
+    first=lines.get(rights[i])
+    second=lines.get(rights[i+1])
+    if first<second:
+        count+=1
+print(count)
