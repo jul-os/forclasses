@@ -1,0 +1,26 @@
+class strange_nums:
+    def __init__(self,num):
+        num=str(num)
+        self.ow=num[::-1]
+    def sum(self, num_2):
+        bigger=str(max(int(self.ow),int(num_2.ow)))
+        self.ow, num_2.ow=(str(bigger)+' '), str(min(int(self.ow),int(num_2.ow)))
+        lenmin=len(num_2.ow)
+        unswer=self.ow
+        for i in range(lenmin):
+                snum=int(self.ow[i])+int(num_2.ow[i])
+                
+                if int(snum)>=10:
+                    unswer=unswer.replace((unswer[i]),str(snum%10))
+                    self.ow=self.ow.replace(self.ow[i+1],str(int(self.ow[i+1])+1))
+                else:
+                    unswer=unswer.replace(unswer[i],str(snum))
+        return unswer[::-1]
+                    
+num=int(input())
+num=strange_nums(num)
+num_2=int(input())
+num_2=strange_nums(num_2)
+
+print(num.sum(num_2))
+   
