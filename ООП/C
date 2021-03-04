@@ -1,0 +1,14 @@
+class Salary():
+    def __init__(self, sal):
+        self.tax=sal*0.01
+    def taxation_rounding(self):
+        o=self.tax
+        p=self.tax%1
+        if self.tax%1!=0: 
+            tax=int(self.tax)+1 
+        else:
+            tax=int(self.tax)
+        return tax
+sal=1000001
+sal=Salary(sal)
+print(sal.taxation_rounding())
