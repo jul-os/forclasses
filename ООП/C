@@ -9,6 +9,6 @@ class Salary():
         else:
             tax=int(self.tax)
         return tax
-sal=1000001
+sal=int(input())
 sal=Salary(sal)
 print(sal.taxation_rounding())
