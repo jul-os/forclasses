@@ -1,0 +1,13 @@
+class factorial():
+    def __init__(self, fac):
+        self.fact=int(fac)
+    def find_factorial(self):
+        fact=1
+        while self.fact>1:
+            fact*=self.fact
+            self.fact-=1
+        return fact
+        
+fac=int(input())
+fac=factorial(fac)
+print(fac.find_factorial())
