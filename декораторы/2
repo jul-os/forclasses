@@ -1,0 +1,68 @@
+import random
+def benchmark(func):
+    import time
+    
+    def wrapper(*args, **kwargs):
+        start=time.time()
+        func(*args, **kwargs)
+        end=time.time()
+        print(end-start)
+    
+    return wrapper
+
+
+@benchmark
+def n2_func():
+    count=0
+    n=[]
+    size=int(input())
+    for i in range(size):
+        i=int(random.randint(-10000,10000))
+        n.append(i)
+    for i in n:
+        count+=1
+    print(count, 'n2')
+    
+n2_func()
+
+@benchmark
+def n_func():
+    count=0
+    n=[]
+    size=int(input())
+    for i in range(size):
+        i=int(random.randint(-10000,10000))
+        n.append(i)
+        count+=1
+    print(count, 'n')
+    
+n_func()
+
+
+n=[]
+size=int(input())
+for i in range(size):
+    i=int(random.randint(-10000,10000))
+    n.append(i)
+
+@benchmark
+def quicksort(n):
+    if len(n) <= 1:
+        return n
+    else:
+        q = random.choice(n)
+        s_nums = [ ]
+        m_nums = [ ]
+        e_nums = [ ]
+        for j in n:
+            if j < q:
+                s_nums.append(j)
+            elif j > q:
+                m_nums.append(j)
+            else:
+                e_nums.append(j)
+        n=[quicksort(s_nums), e_nums, quicksort(m_nums)]
+        return n
+    print(n[0:9], end=' ')
+
+quicksort(n)
