@@ -1,0 +1,16 @@
+def sort(obj:list,attr:list):
+    for i in attr:
+        for t in range(len(obj)):
+            at=obj[t].__dict__
+            atn=obj[t+1].__dict__
+            o=atr(at, atn, attr)
+            if o==',':
+                obj[t],obj[t+1]=obj[t+1],obj[t]
+def atr(at,atn,attr):
+    for i in range(len(attr)):
+        atv=at.get(i)
+        atnv=atn.get(i)
+        if atv==atnv:
+            continue
+        elif atv>atnv:
+            return','
