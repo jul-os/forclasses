@@ -1,22 +1,32 @@
 class Animal():
-    othername=input()
+    def __init__(self, nme):
+        self.othername=nme
         
 class WildAnimal(Animal):
-    evironment=input()
+    def __init__(self,env):
+        self.evironment=env
 class WaterAnimal(WildAnimal):
-    watersalinity=float(input())
+    def __init__(self, salt):
+        self.watersalinity=salt
 class ForestAnimal(WildAnimal):
-    foresttype=input()
+    def __init__(self,frst):
+        self.foresttype=frst
 class HomeAnimal(Animal):
-    whattoby=input()    
+    def __init__(self, tob):
+        self.whattoby=tob   
 class Pets(HomeAnimal):
-    toy=input()
+    def __init__(self,play):
+        self.toy=play
 class Livestock(HomeAnimal):
-    needs=input()
+    def __init__(self, need):
+        self.needs=need
 class Cow(Livestock):
-    name='hu'
+    nme='Bos Taurus'
+    tob='food'
+    need='cowshed'
 class Wolf(ForestAnimal):
-    eat='rabit'
-
+    nme='Canis Lupus'
+    env='eurasia and north america'
+    frst='doesnt like it actually'
 wolf=Wolf()
 print(wolf.foresttype)
