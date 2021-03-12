@@ -1,0 +1,22 @@
+class Animal():
+    def __init__(self):
+        self.liveswith=''
+        self.livesin=''
+        
+class WildAnimal(Animal):
+    
+class WaterAnimal(WildAnimal):
+    
+class ForestAnimal(WildAnimal):
+    
+    
+class HomeAnimal(Animal):
+    
+class Pets(HomeAnimal):
+    
+class Livestock(HomeAnimal):
+    
+class Cow(Livestock):
+    name='hu'
+class Wolf(ForestAnimal):
+    eat='rabit'
