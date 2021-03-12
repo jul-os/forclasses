@@ -2,8 +2,8 @@ class Cat():
     def __init__(self):
         self.name=''
         self.stamina=1000
-    def SetName(self):
-        self.name=str(input())
+    def SetName(self,stri):
+        self.name=stri
     def GetName(self):
         if self.name!='':
             print(self.name)
@@ -19,7 +19,8 @@ class Cat():
         print(self.stamina)
         
 cat1=Cat()
-'''cat1.SetName()
+'''
+cat1.SetName(stri)
 cat1.GetName()
 cat1.run()
 cat1.eat()
