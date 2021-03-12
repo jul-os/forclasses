@@ -1,0 +1,40 @@
+class Animal():
+    def __init__(self):
+        self.liveswith=''
+        self.livesin=''
+    def wildornot(self):
+        if self.liveswith=='human':
+            return 'home'
+        else:
+            return 'wild'
+        
+class WildAnimal(Animal):
+    def waterorforest(self):
+        if self.livesin=='water':
+            return 'water'
+        else:
+            return 'forest'
+def WaterAnimal(WildAnimal):
+    def __init__(self):
+        self.kindofwater=''
+    def whatwater(self):
+        if self.kindofwater=='lake':
+            print('this wild water animal lives in a lake')
+        elif self.kindofwater=='river':
+            print('this wild water animal lives in a river')
+        elif self.kindofwater=='ocean':
+            print('this wild water animal lives in an ocean')
+def ForestAnimal(WildAnimal):
+    def __init__(self):
+        self.foresttype=''
+    def whatforest(self):
+        if self.foresttype=='tropical':
+            print('this wild forest animal lives in a tropical forest')
+        elif self.foresttype=='foliar':
+            print('this wild forest animal lives in a foliar forerst')
+        elif self.foresttype=='pine':
+            print('this wid forest animal lives in a pine wood')
+def HomeAnimal(Animal):
+    def petorlivestock(self):
+        if self.livesin=='house':
+            return 'pet'
