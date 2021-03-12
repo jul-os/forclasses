@@ -1,22 +1,22 @@
 class Animal():
-    def __init__(self):
-        self.liveswith=''
-        self.livesin=''
+    othername=input()
         
 class WildAnimal(Animal):
-    
+    evironment=input()
 class WaterAnimal(WildAnimal):
-    
+    watersalinity=float(input())
 class ForestAnimal(WildAnimal):
-    
-    
+    foresttype=input()
 class HomeAnimal(Animal):
-    
+    whattoby=input()    
 class Pets(HomeAnimal):
-    
+    toy=input()
 class Livestock(HomeAnimal):
-    
+    needs=input()
 class Cow(Livestock):
     name='hu'
 class Wolf(ForestAnimal):
     eat='rabit'
+
+wolf=Wolf()
+print(wolf.foresttype)
