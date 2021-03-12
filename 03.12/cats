@@ -1,7 +1,7 @@
 class Cat():
     def __init__(self):
         self.name=''
-        self.stamina=int(1000)
+        self.stamina=1000
     def SetName(self):
         self.name=str(input())
     def GetName(self):
