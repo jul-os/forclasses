@@ -1,0 +1,36 @@
+import math
+class vector():
+    def __init__(self):
+        self.x=int()
+        self.y=int()
+        self.z=int()
+    def get(self):
+        self.x=int(input())
+        self.y=int(input())
+        self.z=int(input())
+        return self.x, self.y, self.z
+    def Length(self):
+        self.get()
+        l=math.sqrt(self.x**2+self.y**2+self.z**2)
+        return l
+    def scalar(self, two):
+        self.get()
+        two.get()
+        sc=self.x*two.x+self.y*two.y+self.z*two.z
+        return sc
+    def vectormult(self, two):
+        self.get()
+        two.get()
+        vmx=self.y*two.z-self.z*two.y
+        vmy=self.z*two.x-self.x*two.z
+        vmz=self.x*two.y-self.y*two.x
+        print('(',vmx, vmy, vmz,')', sep=' ')
+    def angle(self, two):
+        self.get()
+        two.get()
+        up=self.vectormult(two)
+        down=self.Length*two.Length
+        ang=up/down
+        return ang
+vector1=vector()
+vector2=vector()
