@@ -4,7 +4,7 @@ class Animal():
         
 class WildAnimal(Animal):
     def __init__(self,env):
-        self.evironment=env
+        self.environment=env
 class WaterAnimal(WildAnimal):
     def __init__(self, salt):
         self.watersalinity=salt
@@ -27,6 +27,8 @@ class Cow(Livestock):
 class Wolf(ForestAnimal):
     nme='Canis Lupus'
     env='eurasia and north america'
-    frst='doesnt like it actually'
-wolf=Wolf()
-print(wolf.foresttype)
+    frst='doesnt like it??'
+    
+    
+wolf=Wolf('doesnt like it??')
+print(wolf.environment)
