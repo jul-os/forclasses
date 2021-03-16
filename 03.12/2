@@ -3,22 +3,28 @@ class Animal():
         self.othername=nme
         
 class WildAnimal(Animal):
-    def __init__(self,env):
+    def __init__(self,nme, env):
+        super().__init__(nme)
         self.environment=env
 class WaterAnimal(WildAnimal):
-    def __init__(self, salt):
+    def __init__(self, nme, env, salt):
+        super().__init__(nme, env)
         self.watersalinity=salt
 class ForestAnimal(WildAnimal):
-    def __init__(self,frst):
+    def __init__(self,nme, env, frst):
+        super().__init__(nme, env)
         self.foresttype=frst
 class HomeAnimal(Animal):
-    def __init__(self, tob):
+    def __init__(self, nme, tob):
+        super().__init__(nme)
         self.whattoby=tob   
 class Pets(HomeAnimal):
-    def __init__(self,play):
+    def __init__(self,nme, tob, play):
+        super().__init__(nme, tob)
         self.toy=play
 class Livestock(HomeAnimal):
-    def __init__(self, need):
+    def __init__(self, nme, tob, need):
+        super().__init__(nme, tob)
         self.needs=need
 class Cow(Livestock):
     nme='Bos Taurus'
@@ -30,5 +36,5 @@ class Wolf(ForestAnimal):
     frst='doesnt like it??'
     
     
-wolf=Wolf('doesnt like it??')
+wolf=Wolf('Canis Lupus','eurasia and north america','doesnt like it??')
 print(wolf.environment)
