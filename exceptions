@@ -1,0 +1,35 @@
+import functools
+
+@functools.total_ordering 
+class Subj():
+    def __init__(self, name):
+        assert (type(name)==str), 'must be str'
+        self.name=name
+    def __eq__(self, otherst, othertch):
+        if self.name==othertch.fiot:
+            teacher_file=open(othertch.fiot, 'w')
+            if self.name in otherst.subject:
+                file.write(otherst.fios)
+
+class Student(Subj):
+    def __init__(self,fios,name):
+        self.subjects=[]
+        assert (type(fios)==str), 'must be str'
+        self.fios=fios
+        for i in range(len(name)):
+            super().__init__(name[i])
+            self.subjects.append(name[i])
+    
+class Teacher(Subj):
+    def __init__(self, fiot, name):
+        super().__init__(name)
+        assert (type(fiot)==str), 'must be str'
+        self.fiot=fiot
+        self.subject=name
+            
+teacher1=Teacher('Valentina Nikolaevna', 'Biology')
+student1=Student('Petia',['Math','Biology'])
+student2=Student('Sveta',['Biology','Chemistry'])
+subj1=Subj('Biology')
+subj2=Subj('Math')
+subj3=Subj('Chemistry')
