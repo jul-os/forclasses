@@ -1,0 +1,41 @@
+class Stack():
+    def __init__(self, array):
+        if len(array)!=0:
+            self.array=array
+        else:
+            self.array=[]
+    def append(self, app):
+        self.array.insert(0,app)
+        return self.array
+    def pop(self):
+        del self.array[0]
+        return self.array
+    def peak(self, peak):
+        return self.array[-peak]
+    
+class Queque():
+    def __init__(self, array):
+        if len(array)!=0:
+            self.array=array
+        else:
+            self.array=[]
+    def append(self, app):
+        self.array.insert(0,app)
+        return self.array
+    def pop(self):
+        del self.array[-1]
+        return self.array
+    def peak(self, peak):
+        return self.array[peak]
+    
+a=[3,2,1]
+b=[1,2,3]
+a=Stack(a)
+b=Queque(b)
+print(a.append(4))
+print(a.pop())
+print(a.peak(2))
+
+print(b.append(4))
+print(b.pop())
+print(b.peak(2))
