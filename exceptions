@@ -5,12 +5,14 @@ class Subj():
     def __init__(self, name):
         assert (type(name)==str), 'must be str'
         self.name=name
-    def __eq__(self, otherst, othertch):
-        if self.name==othertch.fiot:
-            teacher_file=open(othertch.fiot, 'w')
-            if self.name in otherst.subject:
-                file.write(otherst.fios)
-
+    def __eq__(self, otherstd):
+        for i in range(2):
+            sub=otherstd.subjects[i]
+            if self.name==sub:
+                return 'self.name==sub'
+    def __lt__(self, otherst, othertch):
+        return 'self.name<othertch.fiot'
+ 
 class Student(Subj):
     def __init__(self,fios,name):
         self.subjects=[]
@@ -33,3 +35,12 @@ student2=Student('Sveta',['Biology','Chemistry'])
 subj1=Subj('Biology')
 subj2=Subj('Math')
 subj3=Subj('Chemistry')
+
+#через дикт записывать в файл
+dict1={teacher1.fiot:''}
+checksubj=teacher1.subject
+u=checksubj.__eq__(student1)
+if u=='checksubj.name==sub':
+    dict1[teacher1.fiot].append(student1.fios)
+    
+print(dict1)
