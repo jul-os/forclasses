@@ -12,7 +12,7 @@ class Stack():
         return self.array
     def peek(self):
         return self.array[0]
-    
+
 class Queque():
     def __init__(self, array):
         if len(array)!=0:
@@ -27,15 +27,26 @@ class Queque():
         return self.array
     def peek(self):
         return self.array[-1]
+
+
+class QthroughS(Stack):
+    def append(self,app):
+        #если app это Stack
+        self.array.insert(0, app[::-1])
+        return self.array
+    def pop(self):
+        del self.array[-1]
+        return self.array
+    def peek(self):
+        return self.array[-1]
     
-a=[3,2,1]
-b=[1,2,3]
-a=Stack(a)
-b=Queque(b)
-print(a.append(4))
-print(a.peek())
-print(a.pop())
-print('\n')
-print(b.append(4))
-print(b.pop())
-print(b.peek())
+    
+class SthroughQ(Queque):
+    def append(self,app):
+        self.array.insert(0, app[::-1])
+        return self.array
+    def pop(self):
+        del self.array[-1]
+        return self.array
+    def peek(self):
+        return self.array[-1]
