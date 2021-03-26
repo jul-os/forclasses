@@ -9,9 +9,9 @@ class Subj():
         for i in range(2):
             sub=otherstd.subjects[i]
             if self.name==sub:
-                return 'self.name==sub'
+                return self.name==sub
     def __lt__(self, otherst, othertch):
-        return 'self.name<othertch.fiot'
+        return self.name<othertch.fiot
  
 class Student(Subj):
     def __init__(self,fios,name):
@@ -37,10 +37,9 @@ subj2=Subj('Math')
 subj3=Subj('Chemistry')
 
 #через дикт записывать в файл
-dict1={teacher1.fiot:''}
+dict1={teacher1.fiot:[]}
 checksubj=teacher1.subject
 u=checksubj.__eq__(student1)
-if u=='checksubj.name==sub':
+if u:
     dict1[teacher1.fiot].append(student1.fios)
-    
 print(dict1)
