@@ -1,0 +1,42 @@
+import telebot as tb
+import random
+
+bot=tb.TeleBot(' ')
+
+keyboard=tb.types.ReplyKeyboardMarkup()
+item1=tb.types.KeyboardButton('Овен')
+item2=tb.types.KeyboardButton('Телец')
+item3=tb.types.KeyboardButton('Близнецы')
+item4=tb.types.KeyboardButton('Рак')
+item5=tb.types.KeyboardButton('Лев')
+item6=tb.types.KeyboardButton('Дева')
+item7=tb.types.KeyboardButton('Весы')
+item8=tb.types.KeyboardButton('Скорпион')
+item9=tb.types.KeyboardButton('Стрелец')
+item10=tb.types.KeyboardButton('Козерог')
+item11=tb.types.KeyboardButton('Водолей')
+item12=tb.types.KeyboardButton('Рыбы')
+keyboard.row(item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12)
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'не напомнишь, какой сегодня день?')
+predictiontoday={}
+@bot.message_handler(content_types=['text'])
+def new_message(message):
+    choose=['Первая половина дня проходит приятно','Вторая половина дня будет сложнее.', 'Это благоприятное время для общения.', 'Удача сопутствует вам во всем, что связано с финансами и имуществом.',
+            'Вечером будет возможность вернуться к старому хобби.','Нужно приложить усилия, чтобы избежать конфликтов']
+    last_day=0
+    if message.isdigit():
+        bot.send_message(message.chat.id, 'чей гороскоп составить?',reply_markup=keyboard)
+        if last_day!=message:
+            predictiontoday={}
+        last_day=message
+        text=''
+    if message.isdigit()==False:
+        for i in range(3):
+            text+=random.choice(choose)
+        zodiak=message
+        predictiontoday[zodiak]=text
+    bot.send_message(message.chat.id, predictiontoday[zodiak])
+ 
+bot.polling()
