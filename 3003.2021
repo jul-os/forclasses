@@ -1,0 +1,21 @@
+import telebot as tb
+import random
+
+bot=tb.TeleBot('1734364402:AAG6KkcQWpXZNpHHcMASpV-5uF9_hlfHxm8')
+
+keyboard=tb.types.ReplyKeyboardMarkup()
+item1=tb.types.KeyboardButton('Хочу печеньку')
+item2=tb.types.KeyboardButton('Предсказание получено, пока')
+keyboard.row(item1,item2)
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, '/start')
+    bot.send_message(message.chat.id, 'Печеньку?',reply_markup=keyboard)
+@bot.message_handler(content_types=['text'])
+def new_message(message):
+    choose=['Судьба озолотит вам ручку','Вселенная слышит и понимает тебя.', 'Смех, Макдональдс, карусели', 'Ой зря ты эту печеньку открыл']
+    if message.text=='Хочу печеньку':
+        i=random.choice(choose)
+        bot.send_message(message.chat.id, i)
+   
+bot.polling()
