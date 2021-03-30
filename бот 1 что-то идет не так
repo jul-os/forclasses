@@ -1,6 +1,6 @@
 import telebot as tb
 
-bot=tb.TeleBot('1734364402:AAG6KkcQWpXZNpHHcMASpV-5uF9_hlfHxm8')
+bot=tb.TeleBot(' ')
 
 keyboard=tb.types.ReplyKeyboardMarkup()
 item1=tb.types.KeyboardButton('Солнечно')
