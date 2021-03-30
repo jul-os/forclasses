@@ -1,0 +1,20 @@
+import telebot as tb
+
+bot=tb.TeleBot('1734364402:AAG6KkcQWpXZNpHHcMASpV-5uF9_hlfHxm8')
+
+keyboard=tb.types.ReplyKeyboardMarkup()
+item1=tb.types.KeyboardButton('Солнечно')
+item2=tb.types.KeyboardButton('Облачно')
+keyboard.row(item1,item2)
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'Привет. /start')
+    bot.send_message(message.chat.id, 'Как твои дела?')
+def new_message(message):
+    if message.text=='пока':
+        file_id = 'CAACAgIAAxkBAAMXX7Il49hMihzf8uZwfOwCQcLzcyYAAjESAALo1uISckVLg4exC8EeBA'
+        tb.send_sticker(message.chat.id, file_id)
+    else:
+        bot.send_message(message.chat.id, 'Как погода?',reply_markup=keyboard)
+
+bot.polling()
