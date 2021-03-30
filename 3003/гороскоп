@@ -23,20 +23,23 @@ def start_message(message):
 predictiontoday={}
 @bot.message_handler(content_types=['text'])
 def new_message(message):
-    choose=['Первая половина дня проходит приятно','Вторая половина дня будет сложнее.', 'Это благоприятное время для общения.', 'Удача сопутствует вам во всем, что связано с финансами и имуществом.',
-            'Вечером будет возможность вернуться к старому хобби.','Нужно приложить усилия, чтобы избежать конфликтов']
+    global predictiontoday
+    choose=['Первая половина дня проходит приятно. ','Вторая половина дня будет сложнее. ', 'Это благоприятное время для общения. ', 'Удача сопутствует вам во всем, что связано с финансами и имуществом. ',
+            'Вечером будет возможность вернуться к старому хобби. ','Нужно приложить усилия, чтобы избежать конфликтов. ']
     last_day=0
-    if message.isdigit():
+    if message.text.isdigit():
         bot.send_message(message.chat.id, 'чей гороскоп составить?',reply_markup=keyboard)
-        if last_day!=message:
+        if last_day!=message.text:
             predictiontoday={}
-        last_day=message
-        text=''
-    if message.isdigit()==False:
+        last_day=message.text
+    text=''
+    if message.text.isdigit()==False:
         for i in range(3):
             text+=random.choice(choose)
-        zodiak=message
-        predictiontoday[zodiak]=text
-    bot.send_message(message.chat.id, predictiontoday[zodiak])
+        zodiak=message.text
+        if zodiak not in predictiontoday:
+            predictiontoday[zodiak]=text
+        print(predictiontoday)
+        bot.send_message(message.chat.id, predictiontoday[zodiak])
  
 bot.polling()
