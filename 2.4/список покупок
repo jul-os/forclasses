@@ -1,0 +1,42 @@
+import telebot as tb
+
+bot=tb.TeleBot(' ')
+
+keyboard=tb.types.ReplyKeyboardMarkup()
+item1=tb.types.KeyboardButton('добавить')
+item2=tb.types.KeyboardButton('удалить')
+item3=tb.types.KeyboardButton('показать')
+keyboard.row(item1,item2, item3)
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'что сделать?',reply_markup=keyboard)
+a=[]
+uu=9
+@bot.message_handler(content_types=['text'])
+def roll(message):
+    global a
+    global uu
+    if message.text=='добавить':
+        bot.send_message(message.chat.id, 'что добавляем?')
+        uu=1
+    elif message.text=='удалить':
+        uu=0
+        bot.send_message(message.chat.id, 'что убираем?')
+    elif message.text=='показать':
+        urlist=''
+        for i in range(len(a)):
+            urlist+=a[i]+', '            
+        bot.send_message(message.chat.id, urlist)
+        uu=9
+    elif uu==1:
+        a.append(message.text)
+        bot.send_message(message.chat.id, 'ещё что-нибудь?')
+        uu=9
+    elif uu==0:
+        a.remove(message.text)
+        bot.send_message(message.chat.id, 'ещё что-нибудь?')
+        uu=9
+    
+        
+ 
+bot.polling()
