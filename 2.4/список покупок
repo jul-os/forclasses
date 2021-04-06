@@ -1,8 +1,6 @@
 import telebot as tb
 
-bot=tb.TeleBot(' ')
-
-keyboard=tb.types.ReplyKeyboardMarkup()
+bot=tb.TeleBot(' ')keyboard=tb.types.ReplyKeyboardMarkup()
 item1=tb.types.KeyboardButton('добавить')
 item2=tb.types.KeyboardButton('удалить')
 item3=tb.types.KeyboardButton('показать')
@@ -33,7 +31,12 @@ def roll(message):
         bot.send_message(message.chat.id, 'ещё что-нибудь?')
         uu=9
     elif uu==0:
-        a.remove(message.text)
+        try:
+            assert(message.text not in a),'Этого прдмета нет в списке'
+            a.remove(message.text)
+        except:
+            bot.send_message(message.chat.id, 'Этого прдмета нет в списке')
+            
         bot.send_message(message.chat.id, 'ещё что-нибудь?')
         uu=9
     
