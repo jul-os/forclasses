@@ -1,0 +1,46 @@
+mport random
+
+class Crocodile():
+    def __init__(self, legs):
+        self.legs=legs
+    def check(self, imperor):
+        if self.legs<imperor.legs:
+            return -1
+        elif self.legs==imperor.legs:
+            return 0
+        elif self.legs>imperor.legs:
+            return 1
+    def breeding(self, other):
+        q=self.legs+other.legs
+        i=random.randrange(0,q)
+        self.legs=i
+        i=random.randrange(0, q+1)
+        other.legs=i
+    def mutation(self):
+        self.legs=random.randrange(1000)
+        
+Imperor=Crocodile(4)
+crocs=[]
+for t in range(10000):
+    croc=Crocodile(random.randrange(1000))
+    crocs.append(croc)
+for u in range(0,10):
+    print(crocs[u].legs)
+while Imperor not in crocs:
+    for i in crocs[::]:
+        print(i.legs)
+        print(i.check(Imperor))
+        e=i.check(Imperor)
+        if e==0:
+            print(i.legs)
+            print('we found it')
+            break
+        elif e==-1:
+            crocs.remove(i)
+        elif e==1:
+            continue
+    for i in range(len(crocs)-2):
+        crocs[i].breeding(crocs[i+1])
+    for t in range(10):
+        o=random.randrange(len(crocs)-2)
+        crocs[o].mutation()
