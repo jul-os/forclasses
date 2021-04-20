@@ -4,9 +4,7 @@ from google.colab.patches import cv2_imshow
 matching=[]
 def compare(one, other):
   global matching
-  if one.all() < other.all():
-    return -1
-  elif one.all()==other.all():
+  if one[0]==other[0] and one[1]==other[1] and one[2]==other[2]:
     matching.append(one)
     return 0
   else:
