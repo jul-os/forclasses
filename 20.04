@@ -26,15 +26,21 @@ for i in range(img2.shape[0]):
     for j in range(img2.shape[1]):
         img2[i][j]=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
         
-while (len(matching)*100/gg>=80)==False:
+
+while True:
   i=random.randint(0,img2.shape[0]-1)
   j=random.randint(0,img2.shape[1]-1)
   one=img2[i][j]
   other=img[i][j]
   o=compare(one, other)
-  if o==1 or o==-1:
+  if o==1:
     change(one)
+  elif o==0:
+    continue
+  if len(matching)*100/gg>=10:
+    break
 cv2.imwrite('newimg2.JPG', img2)
 newimg2=cv2.imread('newimg2.JPG')
+print('i')
 
 cv2_imshow(newimg2)
