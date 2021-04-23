@@ -9,9 +9,9 @@ def compare(u, other):
     matching.append(u)
     return 0
   else:
-    change(u)
-def change(u):
-  u=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+    u=change()
+def change():
+  return [random.randint(0,255),random.randint(0,255),random.randint(0,255)]
 def go(img, img2, tempw, templ):
   global matching
   ones=[]
@@ -40,8 +40,6 @@ img2=cv2.imread('l.JPG')
 for i in range(img2.shape[0]):
     for j in range(img2.shape[1]):
         img2[i][j]=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
-
-
 
 w = img2.shape[0]
 l = img2.shape[1]
