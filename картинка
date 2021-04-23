@@ -49,7 +49,7 @@ wstart=1
 lstart=1
 
 for tempw in range(wstart, w):
-  for templ in range(lstart,l, 10):
+  for templ in range(lstart,l):
     go(img, img2, tempw, templ)
     wstart+=10
     lstart+=10
