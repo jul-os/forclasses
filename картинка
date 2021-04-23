@@ -1,0 +1,62 @@
+import random
+import cv2
+from google.colab.patches import cv2_imshow
+matching=[]
+def compare(u, other):
+  global matching
+
+  if u[0]==other[0] and u[1]==other[1] and u[2]==other[2]:
+    matching.append(u)
+    return 0
+  else:
+    change(u)
+def change(u):
+  u=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+def go(img, img2, tempw, templ):
+  global matching
+  ones=[]
+  while True:
+    for t in range(1000000):
+      i=random.randint(0,tempw-1)
+      j=random.randint(0,templ-1)
+      one=img2[i][j]
+      ones.append(one)
+    for u in ones[::]:
+      other=[u[0], u[1], u[2]]
+      o=compare(u, other)
+      if o==0:
+        continue
+    if len(matching)*100/gg>=10:
+      matching=[]
+      ones=[]
+      break
+img=cv2.imread('s.JPG')
+image_gray=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+print(img.shape)
+gg=img.shape[0]+img.shape[1]
+ch, threshold=cv2.threshold(image_gray, 150, 244, 0)
+img2=cv2.imread('l.JPG')
+
+for i in range(img2.shape[0]):
+    for j in range(img2.shape[1]):
+        img2[i][j]=[random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+
+
+
+w = img2.shape[0]
+l = img2.shape[1]
+wstart=1
+lstart=1
+
+for tempw in range(wstart, w):
+  for templ in range(lstart,l, 10):
+    go(img, img2, tempw, templ)
+    wstart+=10
+    lstart+=10
+
+
+cv2.imwrite('newimg2.JPG', img2)
+newimg2=cv2.imread('newimg2.JPG')
+print('i')
+
+cv2_imshow(newimg2)
